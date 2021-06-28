@@ -51,3 +51,5 @@ func ErrorHandlingMiddleware(trans ut.Translator, val *validator.Validate) gin.H
 		}
 	}
 }
+
+// Tag added
