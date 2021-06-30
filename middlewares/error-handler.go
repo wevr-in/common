@@ -10,7 +10,7 @@ import (
 
 const errResp string = "error"
 
-func ErrorHandlingMiddleware(trans ut.Translator, val *validator.Validate) gin.HandlerFunc {
+func ErrorHandler(trans ut.Translator, val *validator.Validate) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Set("trans", trans)
 		c.Set("validator", val)
