@@ -41,6 +41,20 @@ func ErrorHandlingMiddleware(trans ut.Translator, val *validator.Validate) gin.H
 					errResp: se,
 				})
 				break
+			case 102:
+				var se []string
+				se = append(se, e.Err.Error())
+				c.JSON(http.StatusBadRequest, gin.H{
+					errResp: se,
+				})
+				break
+			case 106:
+				var se []string
+				se = append(se, e.Err.Error())
+				c.JSON(http.StatusInternalServerError, gin.H{
+					errResp: se,
+				})
+				break
 			default:
 				var se []string
 				se = append(se, e.Err.Error())
