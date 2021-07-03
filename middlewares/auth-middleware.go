@@ -11,10 +11,6 @@ import (
 	"strings"
 )
 
-type authHeader struct {
-	token string
-}
-
 type AccessDetails struct {
 	AccessUuid string
 	UserId     [12]byte
@@ -43,17 +39,7 @@ func AuthMiddleware(cl *redis.Client) gin.HandlerFunc {
 }
 
 func extractToken(c *gin.Context) string {
-	var _authHeader authHeader
-
-	err := c.BindHeader(&_authHeader)
-	if err != nil {
-		return ""
-	}
-
-	token := _authHeader.token
-	if len(token) != 1 {
-		return ""
-	}
+	token := c.Request.Header.Get("Authorization")
 	strArr := strings.Split(token, " ")
 	if len(strArr) == 2 {
 		return strArr[1]
