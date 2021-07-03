@@ -35,7 +35,7 @@ func AuthMiddleware(cl *redis.Client) gin.HandlerFunc {
 			c.Error(errors.New("authorization required")).SetType(customErrors.ErrorTypeUnauthorized)
 			return
 		}
-		println(uid)
+		fmt.Println(uid)
 		c.Set("userId", uid)
 	}
 }
