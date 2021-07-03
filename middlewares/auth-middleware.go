@@ -28,11 +28,13 @@ func AuthMiddleware(cl *redis.Client) gin.HandlerFunc {
 		tm, err := ExtractTokenMetadata(c)
 		if err != nil {
 			c.Error(errors.New("authorization required")).SetType(customErrors.ErrorTypeUnauthorized)
+			c.Abort()
 			return
 		}
 		uid, err := FetchAuth(tm)
 		if err != nil {
 			c.Error(errors.New("authorization required")).SetType(customErrors.ErrorTypeUnauthorized)
+			c.Abort()
 			return
 		}
 		fmt.Println(uid)
