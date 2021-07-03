@@ -48,6 +48,10 @@ func ErrorHandler(trans ut.Translator, val *validator.Validate) gin.HandlerFunc 
 					errResp: se,
 				})
 				break
+			case 103:
+				var se []string
+				se = append(se, e.Err.Error())
+				c.JSON(http.StatusUnauthorized, gin.H{errResp: se})
 			case 106:
 				var se []string
 				se = append(se, e.Err.Error())
