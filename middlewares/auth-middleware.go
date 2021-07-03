@@ -85,7 +85,7 @@ func ExtractTokenMetadata(c *gin.Context) (*AccessDetails, error) {
 			return nil, err
 		}
 		userIdStr := fmt.Sprintf("%.f", claims["user_id"])
-		if userIdStr != "" {
+		if userIdStr == "" {
 			return nil, err
 		}
 		var userId [12]byte
