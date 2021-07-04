@@ -6,10 +6,10 @@ import (
 	"github.com/nats-io/stan.go"
 )
 
-func GetNatsClient(c *gin.Context) (*stan.Conn, error) {
+func GetNatsClient(c *gin.Context) (stan.Conn, error) {
 	sc, e := c.MustGet("sc").(stan.Conn)
 	if !e {
 		return nil, errors.New("not found in context")
 	}
-	return &sc, nil
+	return sc, nil
 }
