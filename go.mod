@@ -10,6 +10,9 @@ require (
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/kr/pretty v0.1.0 // indirect
+	github.com/nats-io/nats-server/v2 v2.3.1 // indirect
+	github.com/nats-io/nats-streaming-server v0.22.0 // indirect
+	github.com/nats-io/stan.go v0.9.0
 	github.com/onsi/ginkgo v1.16.4 // indirect
 	github.com/onsi/gomega v1.13.0 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
